@@ -9,3 +9,8 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# dottools: add distribution binary directories to PATH
+if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
+  . "$HOME/.tools-cache/setup-dottools-path.sh"
+fi

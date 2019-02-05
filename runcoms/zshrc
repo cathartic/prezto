@@ -11,3 +11,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# source any extra initialization scripts
+INITDIR=$HOME/.etc/init
+
+for i in $INITDIR/* $INITDIR/zsh/*; do
+  if [ -f $i -a -x $i ]; then
+    source $i
+  fi
+done
